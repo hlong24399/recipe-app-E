@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // default
 app.get('/', (req, res) => {
-  res.send(recipe_data);
+  res.render('home');
 })
 
 app.get('/home', (req, res) => {
@@ -26,9 +26,8 @@ app.get('/recipe/:id', (req, res) => {
     res.render('recipe', {recipe: recipe_data[id]} );
 })
 
-app.get('/recipe', (req, res) => {
-    id = req.params.id;
-    res.render('recipe', {recipe: recipe_data[0]} );
+app.get('/about', (req, res) => {
+    res.render('about');
 })
 
 

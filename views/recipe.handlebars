@@ -1,9 +1,23 @@
-<div>
-    
-    <h3> {{ recipe.name }}</h3>
-    <h3> {{ recipe.description }}</h3>
-
-    <img src="{{recipe.img}}" alt="recipe image">
-
-    <img>
+<div class="main__container">
+    <div class="content">
+        <div class="card">
+            <div class="user">
+                <img class="user" src={{recipe.img}} alt="recipe image">
+                <div class="profile">
+                    <div class="name">{{ recipe.name }}</div>
+                    <div class="local">
+                        <span>{{ recipe.description }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <div class="no">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="heart">
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+    </div>
 </div>
