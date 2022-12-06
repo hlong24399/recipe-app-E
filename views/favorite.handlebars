@@ -1,0 +1,14 @@
+<div class="recipes" id="recipes">
+    <h1>Our Recipes!</h1>
+    <div class="recipes__wrapper">
+
+        {{#each recipe}}
+        <div class="recipes__card">
+            <img style="" src="{{img}}">
+            <h2>{{name}}</h2>
+            <p style="font-size:small;">{{description}}</p>
+        </div>
+        {{/each}}
+
+    </div>
+</div>

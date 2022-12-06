@@ -5,6 +5,8 @@ const app = express();
 const port = 3000
 const recipe_data = require('./recipe-data');
 
+const like_recipe = []
+
 // enable middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -23,13 +25,30 @@ app.get('/home', (req, res) => {
 
 app.get('/recipe/:id', (req, res) => {
     id = req.params.id;
-    res.render('recipe', {recipe: recipe_data[id]} );
+    res.render('recipe', {recipe: recipe_data[id], recipe_id : id} );
 })
 
 app.get('/about', (req, res) => {
     res.render('about');
 })
 
+app.get('/recipe/like/:id', (req, res) => {
+  id = parseInt(req.params.id);
+  like_recipe.push(recipe_data[id]);
+  id+=1;
+  res.redirect(`/recipe/${id}`);
+})
+
+app.get('/recipe/nolike/:id', (req, res) => {
+  id = parseInt(req.params.id);
+  id+=1;
+  res.redirect(`/recipe/${id}`);
+})
+
+app.get('/recipe', (req, res) => {
+  console.log(like_recipe);
+  res.render('favorite', {recipe : like_recipe});
+});
 
 // select handlebars as engine for this view
 app.engine('handlebars', engine());
