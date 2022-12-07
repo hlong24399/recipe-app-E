@@ -6,6 +6,10 @@
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: #131313;
+}
+
 .navbar {
   background: #131313;
   height: 80px;
@@ -390,11 +394,10 @@
 .recipes__card {
   margin: 10px;
   height: 425px;
-  width: 300px;
+  width: 280px;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   color: #fff;
   background-image: linear-gradient(to right, #e4b37b 0%, #7e4619 100%);
   transition: 0.3s ease-in;
@@ -522,4 +525,10 @@
 .no:hover,
 .heart:hover {
   transform: scale(1.1);
+}
+
+.img-container img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
 }

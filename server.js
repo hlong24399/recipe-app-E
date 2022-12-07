@@ -29,13 +29,25 @@ app.get('/recipe/:id', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    res.render('about');
+    res.render("about");
 })
 
 app.get('/recipe/like/:id', (req, res) => {
   id = parseInt(req.params.id);
-  like_recipe.push(recipe_data[id]);
+  
+  var isAlreadyLiked = like_recipe.includes(recipe_data[id]);
+
+  if (isAlreadyLiked == false)
+  {
+    like_recipe.push(recipe_data[id]);
+  }
+
+  
   id+=1;
+  if (id == 16)
+  {
+    id = 0;
+  }
   res.redirect(`/recipe/${id}`);
 })
 
